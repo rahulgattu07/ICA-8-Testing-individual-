@@ -16,6 +16,7 @@ class UrinalsTest {
         System.out.println("====== Rahul Gattu == TEST ONE EXECUTED =======");
         assertEquals(false, Urinals.goodString("abc"));
         assertEquals(true, Urinals.goodString("10101"));
+        assertEquals(false, Urinals.goodString("1182"));
     }
 
     @Test
