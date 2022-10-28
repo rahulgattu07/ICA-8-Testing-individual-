@@ -36,7 +36,7 @@ public class Urinals {
                 while (true) {
                     String temp = br.readLine();
                     if (temp == null) break;
-                    System.out.println(temp);
+                    //System.out.println(temp);
                     int val = getUrinals(temp);
                     //    System.out.println(val);
                     bw.write(Integer.toString(val));
