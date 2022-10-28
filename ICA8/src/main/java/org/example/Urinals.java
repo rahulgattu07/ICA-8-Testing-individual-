@@ -1,18 +1,56 @@
 package org.example;
 // Author: Rahul Gattu
 
+import java.io.*;
 import java.util.Scanner;
 
 public class Urinals {
     public static void main(String[] args) {
         String s;
         Scanner sc = new Scanner(System.in);
-        System.out.println(" enter the input");
-        s=sc.next();
-        goodString("11000");
-        int x=getUrinals(s);
-        System.out.println(x);
+        System.out.println("For keyboard input enter 0 for File input enter 1");
+        int opt=sc.nextInt();
+        if(opt==0)
+        {
+            System.out.println(" enter the input");
+            s = sc.next();
+            //goodString("11000");
+            int x = getUrinals(s);
+            System.out.println(x);
+        }
+        else
+        {
+            BufferedReader br = null;
+            try {
+                FileReader file = new FileReader(new File("C:\\Users\\Rahul Gattu\\Desktop\\ICA-8-Testing-individual-\\ICA8\\src\\main\\java\\org\\example\\urinal.dat"));
+                br = new BufferedReader(file);
+
+                File fout = new File("rule.txt");
+                if (!fout.exists()) {
+                    fout.createNewFile();
+
+                }
+
+                FileWriter fw = new FileWriter(fout.getAbsolutePath());
+                BufferedWriter bw = new BufferedWriter(fw);
+                while (true) {
+                    String temp = br.readLine();
+                    if (temp == null) break;
+                    System.out.println(temp);
+                    int val = getUrinals(temp);
+                    //    System.out.println(val);
+                    bw.write(Integer.toString(val));
+                    bw.newLine();
+                }
+                br.close();
+                bw.close();
+            } catch (Exception e) {
+                System.out.println(e);
+                // i=getUrinals(null);
+            }
+        }
     }
+
     public static boolean goodString( String str )
     {  // checks to see if valid string
         boolean gs=false;
