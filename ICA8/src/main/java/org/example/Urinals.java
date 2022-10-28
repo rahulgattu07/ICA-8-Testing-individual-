@@ -86,9 +86,14 @@ public class Urinals {
 
         for(int i=0; i<c.length;i++)
         {
+            //System.out.println(i);
             if(i==0)
             {
-                if(c[i]=='0' && c[i+1]=='0'){
+                //System.out.println(c[i]);
+                if(c.length==1){
+                    return 1 - c[0]+'0';
+                }
+                else if(c[i]=='0' && c[i+1]=='0'){
                     c[i]='1';
                 }
             }
